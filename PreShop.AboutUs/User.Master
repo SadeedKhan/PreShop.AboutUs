@@ -1,0 +1,644 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="User.Master.cs" Inherits="PreShop.AboutUs.UserMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>The PreShop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Smart Bazaar Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/menu.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- menu style -->
+    <link href="css/ken-burns.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- banner slider -->
+    <link href="css/animate.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- carousel slider -->
+    <!-- //Custom Theme files -->
+    <!-- font-awesome icons -->
+    <link href="css/font-awesome.css" rel="stylesheet"/>
+    <!-- //font-awesome icons -->
+
+    <style>
+        .glry-w3agile-grids .view-caption h5 {
+            font-size: 20px !important;
+            color: #fff !important;
+            background: #3075f1 !important;
+            width: 100px !important;
+            height: 90px !important;
+            line-height: 88px !important;
+            -webkit-border-radius: 62% !important;
+            -moz-border-radius: 62% !important;
+            -o-border-radius: 62% !important;
+            -ms-border-radius: 62% !important;
+            border-radius: 62% !important;
+            text-align: center !important;
+            margin: 1em auto !important;
+        }
+
+        .searchBox {
+            width: 100% !important;
+            padding: 1em 5em 1em 1em !important;
+            font-size: 1em !important;
+            color: #999 !important;
+            outline: none !important;
+            border: 1px solid #cccccc !important;
+            background: none !important;
+            -webkit-appearance: none !important;
+            transition: 0.5s all !important;
+            -webkit-transition: 0.5s all !important;
+            -moz-transition: 0.5s all !important;
+        }
+
+        .btnSearch {
+            border: none !important;
+            top: 0px !important;
+            right: 0px !important;
+            width: 60px !important;
+            height: 50px !important;
+            outline: none !important;
+            box-shadow: none !important;
+            background: #f44336 !important;
+            border-radius: inherit !important;
+            -webkit-appearance: none !important;
+            -webkit-transition: .5s all !important;
+            -moz-transition: .5s all !important;
+            transition: .5s all !important;
+        }
+
+        /*AutoComplete flyout */
+        .completionList {
+            /*border: solid 1px #444444;*/
+            margin: 0px;
+            padding: 2px;
+            height: 100px;
+            overflow: auto;
+            background-color: transparent;
+        }
+
+        .listItem {
+            color: #1C1C1C;
+        }
+
+        .itemHighlighted {
+            background-color: #e6e2e2 !important;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- js -->
+        <script src='<%= ResolveUrl("js/jquery-2.2.3.min.js") %>'></script>
+        <!-- //js -->
+        <!-- web-fonts -->
+        <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'/>
+        <link href='//fonts.googleapis.com/css?family=Lovers+Quarrel' rel='stylesheet' type='text/css'/>
+        <link href='//fonts.googleapis.com/css?family=Offside' rel='stylesheet' type='text/css'/>
+        <link href='//fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'/>
+        <!-- web-fonts -->
+        <script src='<%= ResolveUrl("js/owl.carousel.js") %>'></script>
+
+        <script src='<%= ResolveUrl("js/jquery-scrolltofixed-min.js") %>' type="text/javascript"></script>
+        <script>
+            $(document).ready(function () {
+                $('.header-three').scrollToFixed();
+                var summaries = $('.summary');
+                summaries.each(function (i) {
+                    var summary = $(summaries[i]);
+                    var next = summaries[i + 1];
+
+                    summary.scrollToFixed({
+                        marginTop: $('.header-three').outerHeight(true) + 10,
+                        zIndex: 999
+                    });
+                });
+            });
+        </script>
+        <!-- start-smooth-scrolling -->
+        <script type="text/javascript" src='<%= ResolveUrl("js/move-top.js") %>'></script>
+        <script type="text/javascript" src='<%= ResolveUrl("js/easing.js") %>'></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var defaults = {
+                    containerID: 'toTop', // fading element id
+                    containerHoverID: 'toTopHover', // fading element hover id
+                    scrollSpeed: 1200,
+                    easingType: 'linear'
+                };
+                $().UItoTop({ easingType: 'easeOutQuart' });
+
+                $("#<%= ddlCity.ClientID %>").select2({
+                    //data: country
+                });
+
+            });
+        </script>
+        <!-- the jScrollPane script -->
+        <script type="text/javascript" src='<%= ResolveUrl("js/jquery.jscrollpane.min.js") %>'></script>
+        <script type="text/javascript" id="sourcecode">
+            $(function () {
+                $('.scroll-pane').jScrollPane();
+            });
+        </script>
+        <!-- //the jScrollPane script -->
+        <script type="text/javascript" src='<%= ResolveUrl("js/jquery.mousewheel.js") %>'></script>
+        <!-- the mousewheel plugin -->
+
+        <!--Cart-->
+        <script>
+            function showCart() {
+                $('#PPsbmincart').show();
+            }
+            function HideCart() {
+                $('#PPsbmincart').hide();
+            }
+
+            function AddToCart(ProductId, Price, Qty) {
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: "index.aspx/AddCart",
+                    data: '{ProductID: ' + ProductId + ',Price: ' + Price + ',Qty: ' + Qty + '}',
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.d != null) {
+                            BindCartItems(data);
+                            showCart();
+                        }
+                    },
+                });
+            }
+
+            function OnQtyChange(Qty, ItemId) {
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: "index.aspx/UpdateQty",
+                    data: '{ItemId: ' + ItemId + ',Qty: ' + Qty + '}',
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.d != null) {
+                            BindCartItems(data);
+                            showCart();
+                        }
+                    },
+                });
+            }
+
+            $(function () {
+                $('.PreventQtyEvent').click(function (event) {
+                    event.stopPropagation();
+                    event.preventDefault();
+                });
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: "index.aspx/GetCartItems",
+                    data: '',
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.d != null) {
+                            BindCartItems(data);
+                        }
+                    },
+                });
+            });
+
+            function BindCartItems(data) {
+                $("#footer").html("<p class='sbmincart-empty-text'>Your shopping cart is empty</p>");
+                var CartHtml = "";
+                $("#cartitems").empty();
+                for (var i = 0; i < data.d.length; i++) {
+                    CartHtml += "<li class='sbmincart-item sbmincart-item-changed'>" +
+                                     "<div class='sbmincart-details-name'>" +
+                                     "<a class='sbmincart-name' href='#'>" + data.d[i].Product + "</a>" +
+                                         "<ul class='sbmincart-attributes'></ul>" +
+                                     "</div>" +
+                                     "<div class='sbmincart-details-quantity'>" +
+                                         "<input class='sbmincart-quantity PreventQtyEvent' onchange='OnQtyChange(this.value," + data.d[i].ItemId + ");' type='text' pattern='[0-9]*' value='" + data.d[i].Qty + "' autocomplete='off'>" +
+                                     "</div>" +
+                                     "<div class='sbmincart-details-remove'><button type='button' class='sbmincart-remove' onclick='Delete(" + data.d[i].ItemId + ");'>×</button></div>" +
+                                     "<div class='sbmincart-details-price'><span class='sbmincart-price'>" + data.d[i].Price + " Rs</span></div>" +
+                                 "</li>";
+                }
+                if (data.d.length > 0) {
+                    $("#footer").html("<div class='sbmincart-subtotal'>Subtotal: " + data.d[0].SubTotal + " Rs<span style='float:right;margin-right:13px'><a href='#'>Check out</a></span></div>");
+                    $("#cartitems").show();
+                    $("#cartitems").append(CartHtml);
+                }
+                else
+                    $("#cartitems").hide();
+            }
+            function Delete(ItemId) {
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: "index.aspx/DeleteCart",
+                    data: '{ItemId: ' + ItemId + '}',
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.d != null) {
+                            BindCartItems(data);
+                            showCart();
+                        }
+                    },
+                });
+            }
+        </script>
+        <script src='<%= ResolveUrl("js/bootstrap.js") %>'></script>
+        <script src="Store/BarCode/js/bootstrap-filestyle.min.js"></script>
+        <link href="Select2/select2.min.css" rel="stylesheet" />
+        <script src="Select2/select2.min.js"></script>
+        <link href="Select2/CustomCss.css" rel="stylesheet" />
+        <div>
+            <asp:ScriptManager ID="scr" runat="server"></asp:ScriptManager>
+
+            <div class="agileits-modal modal fade" id="FindStorePopUp" role="dialog" aria-labelledby="FindStorePopUp"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel"><i class="fa fa-map-marker" aria-hidden="true"></i>Find Store in your area</h4>
+                        </div>
+                        <div class="modal-body modal-body-sub">
+                            <h5>Select your City</h5>
+                            <asp:DropDownList ID="ddlCity" runat="server" CssClass="form-control bfh-states"></asp:DropDownList>
+
+                            <h5>Select your City</h5>
+                            <select class="form-control bfh-states" data-country="US" data-state="CA">
+                                <option value="">Select Your City</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AS">American Samoa</option>
+                            </select>
+                            <br />
+                            <%--<input type="text" name="Name" placeholder="Enter your area / Landmark / Pincode" required="">--%>
+                            <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">Skip & Explore</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header -->
+
+            <div class="header">
+                <div class="w3ls-header">
+                    <!--header-one-->
+                    <div class="w3ls-header-left">
+                        <%--<p><a href="#">UPTO $50 OFF ON LAPTOPS | USE COUPON CODE LAPPY </a></p>--%>
+                    </div>
+                    <div class="w3ls-header-right">
+                        <ul>
+                            <li class="dropdown head-dpdn">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-user" aria-hidden="true"></i>User Account<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Login </a></li>
+                                    <li><a href="#">Sign Up</a></li>
+                                    <li><a href="#">My Orders</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown head-dpdn">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i>Shop Account<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="Store/Login.aspx">Login</a></li>
+                                    <li><a href="StoreRegistration.aspx">Online Registration</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown head-dpdn">
+                                <a href="javascript:void(0);" class="dropdown-toggle" onclick=" $('#FindStorePopUp').modal('show');"><i class="fa fa-map-marker" aria-hidden="true"></i>Find Store</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="header-two">
+                    <!-- header-two -->
+                    <div class="container">
+                        <div class="header-logo">
+                            <h1><a href="index.aspx">
+                                <img src='<%= ResolveUrl("PreShop.png") %>' style="height: 90px!important; width: 120px!important" /></a></h1>
+                            <h6 style="margin-top: 5px!important;">Your stores. Your place.</h6>
+                        </div>
+                        <div class="header-search">
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <asp:TextBox ID="txtSearch" runat="server" CssClass="searchBox" placeholder="Search for a Product..."></asp:TextBox>
+
+                                    </td>
+                                    <td>
+                                        <asp:LinkButton ID="btnSearch" runat="server" OnClick="btnSearch_Click" CssClass="btn btn-default btnSearch" aria-label="Left Align" Style="position: relative!important">
+                                            <i class="fa fa-search" aria-hidden="true" style="margin-top: 8px!important;font-size: 23px!important;"></i>
+                                        </asp:LinkButton>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="header-cart">
+                            <div class="my-account">
+                                <a href="ContactUs.aspx"><i class="fa fa-map-marker" aria-hidden="true"></i>CONTACT US</a>
+                            </div>
+                            <div class="cart">
+                                <div id="PPsbmincart" style="z-index: 1">
+                                    <div class="innerCart">
+                                        <button type="button" onclick="HideCart();" class="sbmincart-closer">×</button>
+                                        <ul id="cartitems" style="display: none">
+                                        </ul>
+                                        <div class="sbmincart-footer" id="footer">
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <button class="w3view-cart" onclick="showCart();" type='button'><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- //header-two -->
+                <div class="header-three">
+                    <!-- header-three -->
+                    <div class="container">
+                        <div class="menu">
+                            <div class="cd-dropdown-wrapper">
+                                <a class="cd-dropdown-trigger" href="#0">Categories</a>
+                                <nav class="cd-dropdown">
+                                    <a href="#0" class="cd-close">Close</a>
+                                    <ul class="cd-dropdown-content">
+                                        <li><a href="#">Today's Offers</a></li>
+
+                                        <asp:Repeater ID="rptMainRepeater" runat="server" >
+                                            <ItemTemplate>
+                                                <asp:HiddenField ID="hfCategoryID" runat="server" Value='<%# Eval("CategoryID") %>' />
+                                                <li class="has-children">
+                                                    <a href="#"><i class='<%# Eval("Icon") %>'></i>&nbsp&nbsp<%# Eval("Category") %></a>
+                                                    <ul class="cd-secondary-dropdown is-hidden">
+                                                        <li class="see-all"><a href="#">All <%# Eval("Category") %></a></li>
+                                                        <asp:Repeater ID="rptSubCaeogry" runat="server" >
+                                                            <ItemTemplate>
+                                                                <asp:HiddenField ID="hfSubCategoryID" runat="server" Value='<%# Eval("SubCategoryID") %>' />
+                                                                <li class="has-children">
+                                                                    <a href="#"><%# Eval("SubCategory") %></a>
+                                                                    <ul class="is-hidden">
+                                                                        <asp:Repeater ID="rptSubItems" runat="server">
+                                                                            <ItemTemplate>
+                                                                                <li><a href="ViewProducts.aspx<%# Helper.QueryStringModule.Encrypt("HeadingId="+Eval("HeadingId")) %>"><%# Eval("Heading") %></a> </li>
+                                                                            </ItemTemplate>
+                                                                        </asp:Repeater>
+                                                                    </ul>
+                                                                </li>
+                                                            </ItemTemplate>
+                                                        </asp:Repeater>
+                                                    </ul>
+                                                    <!-- .cd-secondary-dropdown -->
+                                                </li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                        <li><a href='<%= ResolveUrl("~/Categories") %>'>View all categories</a></li>
+                                    </ul>
+                                    <!-- .cd-dropdown-content -->
+                                </nav>
+                                <!-- .cd-dropdown -->
+                            </div>
+                            <!-- .cd-dropdown-wrapper -->
+                        </div>
+                        <div class="move-text">
+                            <div class="marquee"><a href="#"><span>Get extra 10% off on everything | no extra taxes </span></a></div>
+                            <script type="text/javascript" src='<%= ResolveUrl("js/jquery.marquee.min.js") %>'></script>
+                            <script>
+                                $('.marquee').marquee({ pauseOnHover: true });
+                                //@ sourceURL=pen.js
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //header -->
+
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+
+            <!-- footer-top -->
+            <div class="w3agile-ftr-top">
+                <div class="container">
+                    <div class="ftr-toprow">
+                        <div class="col-md-4 ftr-top-grids">
+                            <div class="ftr-top-left">
+                                <i class="fa fa-truck" aria-hidden="true"></i>
+                            </div>
+                            <div class="ftr-top-right">
+                                <h4>Home DELIVERY</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus justo ac </p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-md-4 ftr-top-grids">
+                            <div class="ftr-top-left">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </div>
+                            <div class="ftr-top-right">
+                                <h4>CUSTOMER CARE</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus justo ac </p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-md-4 ftr-top-grids">
+                            <div class="ftr-top-left">
+                                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                            </div>
+                            <div class="ftr-top-right">
+                                <h4>GOOD QUALITY</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus justo ac </p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- //footer-top -->
+            <!-- subscribe -->
+            <div class="subscribe">
+                <div class="container">
+                    <div class="col-md-6 social-icons w3-agile-icons">
+                        <h4>Keep in touch</h4>
+                        <ul>
+                            <li><a href="#" class="fa fa-facebook icon facebook"></a></li>
+                            <li><a href="#" class="fa fa-twitter icon twitter"></a></li>
+                            <li><a href="#" class="fa fa-google-plus icon googleplus"></a></li>
+                            <li><a href="#" class="fa fa-dribbble icon dribbble"></a></li>
+                            <li><a href="#" class="fa fa-rss icon rss"></a></li>
+                        </ul>
+                        <ul class="apps hidden">
+                            <li>
+                                <h4>Download Our app : </h4>
+                            </li>
+                            <%--                            <li><a href="#" class="fa fa-apple"></a></li>
+                            <li><a href="#" class="fa fa-windows"></a></li>--%>
+                            <li><a href="#" class="fa fa-android"></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 subscribe-right">
+                        <h4>Sign up for email and get 25%off!</h4>
+
+                        <input type="text" name="email" placeholder="Enter your Email..."/>
+                        <input type="submit" value="Subscribe"/>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- //subscribe -->
+            <!-- footer -->
+            <div class="footer">
+                <div class="container">
+                    <div class="footer-info w3-agileits-info">
+                        <div class="col-md-4 address-left agileinfo">
+                            <div class="footer-logo header-logo">
+                                <h2><a href="index.aspx">
+                                    <img src='<%= ResolveUrl("PreShop.png") %>' style="height: 90px!important; width: 120px!important" /></a></h2>
+                                <h6 style="margin-top: 5px!important;">Your stores. Your place.</h6>
+                            </div>
+                            <ul>
+                                <li><i class="fa fa-map-marker"></i>123 San Sebastian, Islamabad Pakistan.</li>
+                                <li><i class="fa fa-mobile"></i>333 222 3333 </li>
+                                <li><i class="fa fa-phone"></i>+222 11 4444 </li>
+                                <li><i class="fa fa-envelope-o"></i><a href="#">Contact@thepreshop.com</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-8 address-right">
+                            <div class="col-md-4 footer-grids">
+                                <h3>Company</h3>
+                                <ul>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Marketplace</a></li>
+                                    <li><a href="#">Core Values</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 footer-grids">
+                                <h3>Services</h3>
+                                <ul>
+                                    <li><a href="ContactUs.aspx">Contact Us</a></li>
+                                    <li><a href="#">Returns</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">Site Map</a></li>
+                                    <li><a href="#">Order Status</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 footer-grids">
+                                <h3>Payment Methods</h3>
+                                <ul>
+                                    <li><i class="fa fa-laptop" aria-hidden="true"></i>Net Banking</li>
+                                    <li><i class="fa fa-money" aria-hidden="true"></i>Cash On Delivery</li>
+                                    <li><i class="fa fa-pie-chart" aria-hidden="true"></i>EMI Conversion</li>
+                                    <li><i class="fa fa-gift" aria-hidden="true"></i>E-Gift Voucher</li>
+                                    <li><i class="fa fa-credit-card" aria-hidden="true"></i>Debit/Credit Card</li>
+                                </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- //footer -->
+            <div class="copy-right">
+                <div class="container">
+                    <p>© 2018 ThePreShop . Design by <a href="#">Spartans Technologies</a></p>
+                </div>
+            </div>
+            <!-- countdown.js -->
+            <script src='<%= ResolveUrl("js/jquery.knob.js") %>'></script>
+            <script src='<%= ResolveUrl("js/jquery.throttle.js") %>'></script>
+            <script src='<%= ResolveUrl("js/jquery.classycountdown.js") %>'></script>
+            <script>
+                $(document).ready(function () {
+                    $('#countdown1').ClassyCountdown({
+                        end: '1388268325',
+                        now: '1387999995',
+                        labels: true,
+                        style: {
+                            element: "",
+                            textResponsive: .5,
+                            days: {
+                                gauge: {
+                                    thickness: .10,
+                                    bgColor: "rgba(0,0,0,0)",
+                                    fgColor: "#1abc9c",
+                                    lineCap: 'round'
+                                },
+                                textCSS: 'font-weight:300; color:#fff;'
+                            },
+                            hours: {
+                                gauge: {
+                                    thickness: .10,
+                                    bgColor: "rgba(0,0,0,0)",
+                                    fgColor: "#05BEF6",
+                                    lineCap: 'round'
+                                },
+                                textCSS: ' font-weight:300; color:#fff;'
+                            },
+                            minutes: {
+                                gauge: {
+                                    thickness: .10,
+                                    bgColor: "rgba(0,0,0,0)",
+                                    fgColor: "#8e44ad",
+                                    lineCap: 'round'
+                                },
+                                textCSS: ' font-weight:300; color:#fff;'
+                            },
+                            seconds: {
+                                gauge: {
+                                    thickness: .10,
+                                    bgColor: "rgba(0,0,0,0)",
+                                    fgColor: "#f39c12",
+                                    lineCap: 'round'
+                                },
+                                textCSS: ' font-weight:300; color:#fff;'
+                            }
+
+                        },
+                        onEndCallback: function () {
+                            console.log("Time out!");
+                        }
+                    });
+                });
+            </script>
+            <!-- //countdown.js -->
+            <!-- menu js aim -->
+            <script src='<%= ResolveUrl("js/jquery.menu-aim.js") %>'> </script>
+            <script src='<%= ResolveUrl("js/main.js") %>'></script>
+            <!-- Resource jQuery -->
+            <!-- //menu js aim -->
+            <!-- Bootstrap core JavaScript
+    ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster -->
+
+        </div>
+    </form>
+</body>
+</html>

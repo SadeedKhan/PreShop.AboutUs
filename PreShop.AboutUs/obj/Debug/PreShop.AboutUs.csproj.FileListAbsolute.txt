@@ -1,0 +1,7 @@
+D:\PreShop WorkSpace\PreShop.AboutUs\PreShop.AboutUs\bin\PreShop.AboutUs.dll.config
+D:\PreShop WorkSpace\PreShop.AboutUs\PreShop.AboutUs\bin\PreShop.AboutUs.dll
+D:\PreShop WorkSpace\PreShop.AboutUs\PreShop.AboutUs\bin\PreShop.AboutUs.pdb
+D:\PreShop WorkSpace\PreShop.AboutUs\PreShop.AboutUs\bin\Helper.dll
+D:\PreShop WorkSpace\PreShop.AboutUs\PreShop.AboutUs\obj\Debug\PreShop.AboutUs.csprojResolveAssemblyReference.cache
+D:\PreShop WorkSpace\PreShop.AboutUs\PreShop.AboutUs\obj\Debug\PreShop.AboutUs.dll
+D:\PreShop WorkSpace\PreShop.AboutUs\PreShop.AboutUs\obj\Debug\PreShop.AboutUs.pdb
