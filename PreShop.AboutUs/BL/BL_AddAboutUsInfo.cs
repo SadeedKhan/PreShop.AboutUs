@@ -27,13 +27,11 @@ namespace PreShop.AboutUs.BL
 
         public bool SaveAbout()
         {
-            SqlParameter[] prm = new SqlParameter[5];
+            SqlParameter[] prm = new SqlParameter[4];
             prm[0] = new SqlParameter("@Aid", Aid);
             prm[1] = new SqlParameter("@About", About);
             prm[2] = new SqlParameter("@Mission", Mission);
             prm[3] = new SqlParameter("@History", History);
-            prm[4] = new SqlParameter("@Status", Status);
-
             ExecuteQuery("sp_saveabout", prm);
             return true;
         }

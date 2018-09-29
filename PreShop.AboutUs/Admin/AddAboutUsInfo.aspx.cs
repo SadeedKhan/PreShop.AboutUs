@@ -24,7 +24,6 @@ namespace PreShop.AboutUs.Admin
             obj.About = txtAbout.Text;
             obj.Mission = txtMission.Text;
             obj.History = txtHistory.Text;
-            obj.Status = 1;
             obj.SaveAbout();
             SpartansHelper.ClearInputs(this.Controls);
             lblmsg.ForeColor = Color.Green;

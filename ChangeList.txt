@@ -2,16 +2,14 @@ create proc [dbo].[sp_saveabout]
 @Aid int=null,
 @About varchar(max),
 @Mission varchar(max),
-@History varchar(max),
-@Status int
+@History varchar(max)
 as
 begin
 if((select count(Aid) from tbl_AboutUs) = 0)
 insert into tbl_AboutUs values(
 @About,
 @Mission,
-@History,
-@Status)
+@History)
 end
 
 if((select count(Aid) from tbl_AboutUs) > 0)
@@ -22,6 +20,7 @@ end
 
 create table tbl_AboutUs 
 (
+Aid int primary key identity(1,1),
 About varchar(max),
 Mission varchar(max),
 History varchar(max)
