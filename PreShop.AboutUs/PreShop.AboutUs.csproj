@@ -3066,6 +3066,9 @@
     <Compile Include="Admin\Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
+    <Compile Include="BasePages\AdminBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="BL\BL_AddAboutUsInfo.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

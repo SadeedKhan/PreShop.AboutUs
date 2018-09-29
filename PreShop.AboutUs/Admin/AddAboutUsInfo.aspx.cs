@@ -7,12 +7,12 @@ using System.Web.UI.WebControls;
 using PreShop.AboutUs.BL;
 using System.Drawing;
 using Helper;
-using PreShop.AboutUs.BL;
+using PreShop.BasePages;
 namespace PreShop.AboutUs.Admin
 {
-    public partial class AddAboutUsInfo : System.Web.UI.Page
+    public partial class AddAboutUsInfo : AdminBasePage
     {
-      
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,20 +20,19 @@ namespace PreShop.AboutUs.Admin
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-           BL_AddAboutUsInfo obj = new BL_AddAboutUsInfo();
+            BL_AddAboutUsInfo obj = new BL_AddAboutUsInfo();
             obj.About = txtAbout.Text;
             obj.Mission = txtMission.Text;
             obj.History = txtHistory.Text;
             obj.Status = 1;
             obj.SaveAbout();
             SpartansHelper.ClearInputs(this.Controls);
-
             lblmsg.ForeColor = Color.Green;
             lblmsg.Text = "Successfully Saved";
         }
 
 
-      
-        
+
+
     }
 }
