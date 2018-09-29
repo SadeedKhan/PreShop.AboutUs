@@ -12,10 +12,15 @@ namespace PreShop.AboutUs.Admin
 {
     public partial class AddAboutUsInfo : AdminBasePage
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                AboutUsInfo info = BL_AddAboutUsInfo.GetAboutUs();
+                txtAbout.Text = info.About;
+                txtMission.Text = info.Mission;
+                txtHistory.Text = info.History;
+            }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -29,9 +34,5 @@ namespace PreShop.AboutUs.Admin
             lblmsg.ForeColor = Color.Green;
             lblmsg.Text = "Successfully Saved";
         }
-
-
-
-
     }
 }
