@@ -16,11 +16,16 @@ namespace PreShop.AboutUs.Admin
         {
             if (!IsPostBack)
             {
-                AboutUsInfo info = BL_AddAboutUsInfo.GetAboutUs();
-                txtAbout.Text = info.About;
-                txtMission.Text = info.Mission;
-                txtHistory.Text = info.History;
+                LoadInfo();
             }
+        }
+
+        private void LoadInfo()
+        {
+            AboutUsInfo info = BL_AddAboutUsInfo.GetAboutUs();
+            txtAbout.Text = info.About;
+            txtMission.Text = info.Mission;
+            txtHistory.Text = info.History;
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -33,6 +38,7 @@ namespace PreShop.AboutUs.Admin
             SpartansHelper.ClearInputs(this.Controls);
             lblmsg.ForeColor = Color.Green;
             lblmsg.Text = "Successfully Saved";
+            LoadInfo();
         }
     }
 }
