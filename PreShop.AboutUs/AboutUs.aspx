@@ -4,7 +4,7 @@
   <!--  about-page -->
 	<div class="about">
 		<div class="container"> 
-			<h3 class="w3ls-title w3ls-title1">About Smart bazaar</h3>
+			<h3 class="w3ls-title w3ls-title1">About Preshop</h3>
 			<div class="about-text">	
                <p> <asp:Label runat="server" ID="lblabout"></asp:Label></p>
 					<div class="col-md-3 ftr-top-left about-text-grids">
